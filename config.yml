@@ -1,0 +1,52 @@
+# Configuration file
+
+splash: |
+    ._____ _                 _                 _     _          _____ _     _             
+    /  ___| |               | |               | |   | |        /  __ \ |   (_)            
+    \ `--.| | _____      __ | |__   ___   __ _| |_  | |_ ___   | /  \/ |__  _ _ __   __ _ 
+    .`--. \ |/ _ \ \ /\ / / | '_ \ / _ \ / _` | __| | __/ _ \  | |   | '_ \| | '_ \ / _` |
+    /\__/ / | (_) \ V  V /  | |_) | (_) | (_| | |_  | || (_) | | \__/\ | | | | | | | (_| |
+    \____/|_|\___/ \_/\_/   |_.__/ \___/ \__,_|\__|  \__\___/   \____/_| |_|_|_| |_|\__,_|
+    ---------------------------------- ORDERING SERVICE ----------------------------------
+
+taxRate: 0.2
+
+deliveryFees:
+  - distance: 2
+    cost: 2.50
+  - distance: 5
+    cost: 5.00
+  - distance: 10
+    cost: 7.5
+
+mealDeals:
+  - name: Meal for 2 
+    items: 5
+  - name: Meal for 3 
+    items: 6
+  - name: Meal for 4 
+    items: 7
+
+starters:
+  - name: Crispy wonton
+    price: 3.30
+  - name: Hot and sour soup
+    price: 3.00
+  - name: Chicken with sweetcorn soup 
+    price: 4.60
+
+meals:
+  - name: Sizzling beef with black bean sauce 
+    price: 7.30
+  - name: Sizzling king prawns 
+    price: 5.28
+  - name: Sizzling chicken with ginger 
+    price: 4.20
+  - name: Beef with chilli sauce 
+    price: 5.09
+  - name: Chicken with curry sauce 
+    price: 4.56
+  - name: Chicken with cashew nuts 
+    price: 5.30
+  - name: Pork with sweet and sour sauce 
+    price: 5.67
