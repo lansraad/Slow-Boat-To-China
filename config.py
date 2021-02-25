@@ -17,11 +17,13 @@ class Config:
                 output.append(list(self.config[component][iter].values()))
             return output
         
-    
-#meals = conf.get("meals")
-#starters = conf.get("starters")
-#mealDeals = conf.get("mealDeals")
-#deliveryFees = conf.get("deliveryFees")
-#taxRate = conf.get("taxRate")
-#splash = conf.get("splash")
+# Debug
+if __name__ == "__main__":
+    conf = Config('config.yml')
+    meals = conf.get("meals")
+    starters = conf.get("starters")
+    mealDeals = conf.get("mealDeals")
+    deliveryFees = conf.get("deliveryFees")
+    taxRate = conf.get("taxRate")
+    splash = conf.get("splash")
 
