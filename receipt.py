@@ -1,5 +1,4 @@
 from tabulate import tabulate   # Tabulate is a library which is useful for presenting data in a table format
-from colours import *           #TODO add to config.yml
 
 def generateRecipt(items, taxRate, deliveryFee):
     totalCost, receiptData = 0, []
@@ -33,7 +32,7 @@ def generateRecipt(items, taxRate, deliveryFee):
         \n{:.2f}\
         \n{}\
         \n{}{:.2f}{}\
-        ".format(totalCost, taxAmount, deliveryFee, GREEN, totalCost + taxAmount + deliveryFee, DEFAULT)
+        ".format(totalCost, taxAmount, deliveryFee, "\33[92m", totalCost + taxAmount + deliveryFee, "\033[0m")
 
     print(tabulate(receiptData, ["Quantity","Description","Unit Price (£)","Subtotal (£)"], tablefmt="simple"))
 
