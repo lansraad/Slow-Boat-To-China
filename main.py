@@ -11,10 +11,20 @@ TODO:
 from customer import Customer, userPrompt
 from receipt import generateRecipt
 from config import Config
-import yaml
+
+def createTitle(title):                         # This function returns the title, with formatting to match the horizontal length of the splash text.
+    length = conf.get("splash").index('\n')     # Get the length of the first line by reading up to the newline indicator.
+    length -= len(title) + 2                    
+    output = ''
+    for iter in range(int(length)):             # Loop for every character in the length of the first line.
+        output += '-'                           # Add a minus sign to each empty space for pretty formatting.
+        if iter == length / 2:
+            output += f" {title} "              # Add the title text in the centre.
+    return output
 
 def getUserInfo():
-    print(conf.get("splash")+"Welcome to our restaurant, to begin ordering please enter your information below!\n")
+    print(conf.get("splash") + createTitle("ORDERING SERVICE") + "\nWelcome to our restaurant, to begin ordering please enter your information below!\n")
+    
     firstName = input("First name > ")
     lastName = input("Last name > ")
     postcode = input("Postcode > ")
