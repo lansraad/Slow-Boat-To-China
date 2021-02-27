@@ -22,9 +22,8 @@ def createTitle(title):                         # This function returns the titl
             output += f" {title} "              # Add the title text in the centre.
     return output
 
-def getUserInfo():
+def createOrder():
     print(conf.get("splash") + createTitle("ORDERING SERVICE") + "\nWelcome to our restaurant, to begin ordering please enter your information below!\n")
-    
     firstName = input("First name > ")
     lastName = input("Last name > ")
     postcode = input("Postcode > ")
@@ -34,17 +33,18 @@ def getUserInfo():
     else:
         deliveryFee = getDeliveryFee(deliveryDistance)
         print("⚠️  You will incur a £{} delivery fee! ⚠️".format(deliveryFee))
-        if userPrompt():
-            main(firstName + lastName, postcode, deliveryFee)
-        else: getUserInfo()
+        if not userPrompt():
+            createOrder()
 
-def main(name, postcode, deliveryFee): 
-    customer = Customer(name, postcode)
+    customer = Customer(firstName + lastName, postcode)
     customer.getMealDeal(conf.get("mealDeals"))
     customer.getStarters(conf.get("starters"))  
     customer.getMeals(conf.get("meals"))
 
     generateRecipt(customer.selectedItems, conf.get("taxRate"), deliveryFee)
+
+def main(): 
+    createOrder()
 
 def getDeliveryFee(amount):
     for i in conf.get("deliveryFees"):
@@ -54,4 +54,4 @@ def getDeliveryFee(amount):
 
 if __name__ == "__main__":
     conf = Config('./config.yml')
-    getUserInfo()
+    main()
