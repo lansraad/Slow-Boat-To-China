@@ -1,29 +1,21 @@
-import yaml
+import yaml     # Import PyYAML to parse the config
 
 class Config:
     def __init__(self, path):
+        self.path = path
         try:
-            with open(path, 'r') as file:
-                self.config = yaml.full_load(file)
+            with open(self.path, 'r') as file:
+                self.config = yaml.full_load(file)              # Parse the config file into a large dictionary
         except:
-            raise FileNotFoundError(f"Cannot access {path}")
+            raise FileNotFoundError(f"Cannot access {path}")    # Return a FileNotFoundError error if the config file can't be accessed 
     
     def get(self, component):
         output = []
-        if(isinstance(self.config[component], (str, float))):
-            return self.config[component]
-        else:
+        try:
             for iter in range(len(self.config[component])):
                 output.append(list(self.config[component][iter].values()))
             return output
-        
-# Debug
-if __name__ == "__main__":
-    conf = Config('config.yml')
-    meals = conf.get("meals")
-    starters = conf.get("starters")
-    mealDeals = conf.get("mealDeals")
-    deliveryFees = conf.get("deliveryFees")
-    taxRate = conf.get("taxRate")
-    splash = conf.get("splash")
-
+        except KeyError:                                        # If the component can't be found in the parsed data, return an error message
+           f"Cannot find '{component}' in '{self.path}'"        
+        except:
+            return self.config[component]
