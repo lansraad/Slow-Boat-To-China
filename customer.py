@@ -6,8 +6,9 @@ def clearScreen():              # The function 'clearScreen' clears the terminal
         if(os.name == "nt"):        # If windows is the host operating system, run the 'cls' command to clear the console.
             os.system("cls")
         else:
-            os.system("clear")      # If linux is the host operating system, run the 'clear' command to clear the.
-    except: return False
+            os.system("clear")      # If linux is the host operating system, run the 'clear' command to clear the console.
+    except:
+        return
 
 def userPrompt():                                                                   # This function promts the user to validate their request
     return True if input("\nProceed? [Y/n] > ").upper() == "Y" else False          # If the user replies 'Y' or 'y', the function will return true, otherwise it will return false
