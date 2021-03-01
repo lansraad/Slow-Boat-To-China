@@ -11,7 +11,10 @@ def clearScreen():              # The function 'clearScreen' clears the terminal
         return
 
 def userPrompt():                                                                   # This function promts the user to validate their request
-    return True if input("\nProceed? [Y/n] > ").upper() == "Y" else False          # If the user replies 'Y' or 'y', the function will return true, otherwise it will return false
+    if input("\nProceed? [Y/n] > ").upper() == "Y":
+        return True
+    else: 
+        return False          # If the user replies 'Y' or 'y', the function will return true, otherwise it will return false
 
 class Customer:
     def __init__ (self, name, address):
@@ -81,4 +84,5 @@ class Customer:
                     if(found == False):
                         errorMsg = "Invalid selection, try again!"
             else: 
-                return orderList if userPrompt() else ""
+                if userPrompt():
+                    return orderList
