@@ -1,0 +1,29 @@
+{
+    "orders": [
+        {
+            "id" : 1,
+            "date" : "2021-03-01T09:41+0000",
+            "customer" : 1,
+            "items" : [],
+            "cost" : 37.42,
+            "active" : false
+        },
+        {
+            "id" : 2,
+            "date" : "2021-03-01T19:37+0000",
+            "customer" : 1,
+            "cost" : 23.53,
+            "active" : true
+        }
+    ],
+
+    "customers" : [
+        {
+            "id" : 1,
+            "name" : "Logan Carey",
+            "address" : "YO323GL",
+            "orders" : 0
+        }
+    ]
+
+}
